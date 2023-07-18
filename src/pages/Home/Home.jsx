@@ -8,7 +8,7 @@ function Home(){
     return (
         <>
         <h1 className={css.titre}>Home</h1>
-        <Header />
+        <Header />  
         <Banner />
         <Gallery />
         <Footer />
