@@ -1,43 +1,92 @@
-import './carousel.scss'
-import ArrowRight from '../../assets/arrow_forward_ios-24px 1.svg'
-import ArrowLeft from '../../assets/arrow_forward_ios-24px 2.svg'
-import { useState } from 'react'
+// import './carousel.scss'
+// import ArrowRight from '../../assets/arrow_forward_ios-24px 1.svg'
+// import ArrowLeft from '../../assets/arrow_forward_ios-24px 2.svg'
+// import { useState } from 'react'
+// 
+// export default function Slider({imageSlider}) {
+// 
+//     const [currentIndex, setCurrentIndex] = useState(0)
+// 
+//     const nextSlide = () => {
+//         setCurrentIndex(currentIndex + 1)
+//         if(currentIndex === imageSlider.length - 1)
+//             setCurrentIndex(0)
+//     }
+// 
+//     const prevSlide = () => {
+//         setCurrentIndex(currentIndex - 1)
+//         if(currentIndex === 0)
+//             setCurrentIndex(imageSlider.length - 1)
+//     }
+// 
+//     return (
+//         <section style={{backgroundImage : ""}} className='carousel'>
+//             {imageSlider.length > 1 && 
+//                 <>
+//                     <img 
+//                         className='carousel_arrow carousel_arrow_right' 
+//                         src={ArrowRight} 
+//                         alt="show next slider" 
+//                         onClick={nextSlide}
+//                     />
+//                     <img 
+//                         className='carousel_arrow carousel_arrow_left' 
+//                         src={ArrowLeft} 
+//                         alt="show previous slider" 
+//                         onClick={prevSlide}
+//                     />
+//                     <p className='slideCount'>{currentIndex + 1} / {imageSlider.length}</p>
+//                 </>
+//             } 
+//         </section>
+//     )
+// }
 
-export default function Slider({imageSlider}) {
+import { useState} from 'react'
+import nextIcon from '../../assets/arrow_forward_ios-24px 1.svg'
+import previousIcon from '../../assets/arrow_back_ios-24px 2.svg'
+import css from './carousel.scss'
 
-    const [currentIndex, setCurrentIndex] = useState(0)
-
-    const nextSlide = () => {
-        setCurrentIndex(currentIndex + 1)
-        if(currentIndex === imageSlider.length - 1)
-            setCurrentIndex(0)
+export default function Carousel ({img}){
+  
+    const numberPicture = img.length
+    const firstPicture = img[0]
+    const lastPicture = img[numberPicture-1]
+    const [pictureActual, setPictureActual ] = useState(firstPicture)
+    const pictureIndex = img.indexOf(pictureActual)
+    
+    const next = () => {
+        if(pictureActual === lastPicture){
+            setPictureActual(firstPicture)
+        } else {
+            
+            setPictureActual(img[pictureIndex+1])
+        }
     }
 
-    const prevSlide = () => {
-        setCurrentIndex(currentIndex - 1)
-        if(currentIndex === 0)
-            setCurrentIndex(imageSlider.length - 1)
+    const previous = () => {
+        if(pictureActual === firstPicture){
+            setPictureActual(lastPicture)
+        } else {
+            
+            setPictureActual(img[pictureIndex-1])
+        }
     }
 
     return (
-        <section style={{backgroundImage : ""}} className='carousel'>
-            {imageSlider.length > 1 && 
-                <>
-                    <img 
-                        className='carousel_arrow carousel_arrow_right' 
-                        src={ArrowRight} 
-                        alt="show next slider" 
-                        onClick={nextSlide}
-                    />
-                    <img 
-                        className='carousel_arrow carousel_arrow_left' 
-                        src={ArrowLeft} 
-                        alt="show previous slider" 
-                        onClick={prevSlide}
-                    />
-                    <p className='slideCount'>{currentIndex + 1} / {imageSlider.length}</p>
-                </>
-            } 
-        </section>
-    )
-}
+        <div className={css.carousel}>
+            <div className={css.carousel_container} >
+            <img src={pictureActual}  alt={pictureActual.title} className={css.carousel_img} />
+            </div>
+            {numberPicture !== 1 &&
+            <div className={css.carousel_controls}>
+                <img src={previousIcon} className={css.chevronLeft} alt="previous" onClick={() => previous(pictureActual)} />
+                <img src={nextIcon} className={css.chevronRight} alt="next" onClick={() => next(pictureActual)}/>
+                <div className={css.carousel_Index}>{img.indexOf(pictureActual)+1} / {numberPicture}</div>
+
+            </div>}
+        </div>
+    );}
+
+
+    

@@ -1,4 +1,4 @@
-import css from './navbar.module.scss'
+import css from './navbar.scss'
 import { Link, NavLink } from 'react-router-dom'
 
 
@@ -8,16 +8,16 @@ export default function Navbar() {
 
     return (
         <nav className='nav'>
-            <ul className={css.nav_list}>
+            <ul className='nav_list'>
                 {/* <li className={currentRoute === '/Kasa/' ? 'nav_list_item_active' : 'nav_list_item'}> */}
                 <li>    
-                    <NavLink className={css.navlink} to='/Kasa/'>
+                    <NavLink to='/'>
                         Accueil
                     </NavLink>
                 </li>
                 {/* <li className={currentRoute === '/about' ? 'nav_list_item_active' : 'nav_list_item'}> */}
                 <li>    
-                    <NavLink className={css.navlink} to='/about'>
+                    <NavLink to='/about'>
                         A propos
                     </NavLink>
                 </li>

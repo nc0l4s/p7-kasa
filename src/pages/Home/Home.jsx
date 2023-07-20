@@ -7,7 +7,6 @@ import Footer from '../../components/footer/Footer.jsx'
 function Home(){
     return (
         <>
-        <h1 className={css.titre}>Home</h1>
         <Header />  
         <Banner />
         <Gallery />

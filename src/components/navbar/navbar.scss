@@ -20,11 +20,12 @@
     }
 }
 
-.navlink a{
+.nav_list a{
     text-decoration: none;
+    color: $color-secondary;
 }
 
-.navlink a.active{
+.nav_list a.active{
     position: relative;
     color: $color-secondary;
     transition: all 0.2s ease-in-out;

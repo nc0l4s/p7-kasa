@@ -1,4 +1,4 @@
-import './about.module.scss';
+import css from './about.module.scss';
 import Header from "../../components/header/Header.jsx";
 import Banner from '../../components/banner/Banner.jsx';
 import Collapse from '../../components/collapse/Collapse.jsx';
@@ -33,10 +33,10 @@ export default function About() {
 		<div>
 			<Header />
 			<Banner />
-			<main className='css.about_main'>
+			<main className={css.about_main}>
 				{aboutDatas.map(data => {
 					return (
-						<div key={data.id} className="about_main_collapse">
+						<div key={data.id} className={css.about_main_collapse}>
 							<Collapse style={{margin:'30px 0'}}  title={data.title} content={data.content} />
 						</div>
 					)}
