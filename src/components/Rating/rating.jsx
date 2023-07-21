@@ -1,7 +1,7 @@
 import React from 'react';
 import css from "./rating.module.scss"
-import redstar from "../../assets/Vector.svg"
-import greystar from "../../assets/Vector.svg"
+import redstar from "../../assets/fullstar.png"
+import greystar from "../../assets/emptystar.png"
 
 
 const Rating = ({ rating }) => {
