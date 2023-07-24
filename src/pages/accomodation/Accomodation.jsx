@@ -3,6 +3,7 @@ import Rating from '../../components/Rating/rating.jsx'
 import Header from '../../components/header/Header.jsx'
 import Collapse from '../../components/collapse/Collapse.jsx'
 import Carousel from '../../components/carousel/Carousel.jsx'
+import Footer from '../../components/footer/Footer.jsx'
 import { useParams } from "react-router-dom";
 import datas from '../../data/data'
 
@@ -70,7 +71,7 @@ function Accomadation(){
         
         <main>
         </main>
-        {/* <Footer/>  */}
+       <Footer/> 
         </>
         
     )

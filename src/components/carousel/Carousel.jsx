@@ -1,6 +1,6 @@
 import { useState} from 'react'
-import nextIcon from '../../assets/arrow_forward_ios-24px 1.svg'
-import previousIcon from '../../assets/arrow_back_ios-24px 2.svg'
+import nextIcon from '../../assets/Vector (2).svg'
+import previousIcon from '../../assets/Vector (3).svg'
 import css from './carousel.module.scss'
 
 export default function Carousel ({img}){
