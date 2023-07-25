@@ -4,7 +4,7 @@ import Header from '../../components/header/Header.jsx'
 import Collapse from '../../components/collapse/Collapse.jsx'
 import Carousel from '../../components/carousel/Carousel.jsx'
 import Footer from '../../components/footer/Footer.jsx'
-import { useParams } from "react-router-dom";
+import { useParams, Navigate, } from "react-router-dom";
 import datas from '../../data/data'
 
 
@@ -15,9 +15,11 @@ function Accomadation(){
     const {id} = useParams()
     const accomodation = datas.find(appart => appart.id === id)
     console.log(accomodation)
+    
    
-   
+    if (accomodation !== undefined){
 
+    
     return (
         <>
         <Header />
@@ -75,6 +77,11 @@ function Accomadation(){
         </>
         
     )
+  }
+  else {
+    
+    return <Navigate to='/error'/>
+  }
 }
 
 export default Accomadation;
